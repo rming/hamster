@@ -1,6 +1,6 @@
 VERSION 5.00
 Begin VB.Form Form1 
-   Caption         =   "´òµØÊó_Rming"
+   Caption         =   "æ‰“åœ°é¼ _Rming"
    ClientHeight    =   8370
    ClientLeft      =   225
    ClientTop       =   555
@@ -10,7 +10,7 @@ Begin VB.Form Form1
    LinkTopic       =   "Form1"
    ScaleHeight     =   8370
    ScaleWidth      =   13905
-   StartUpPosition =   2  'ÆÁÄ»ÖĞĞÄ
+   StartUpPosition =   2  'å±å¹•ä¸­å¿ƒ
    WindowState     =   2  'Maximized
    Begin VB.PictureBox Picture1 
       AutoRedraw      =   -1  'True
@@ -25,7 +25,7 @@ Begin VB.Form Form1
       Width           =   1575
    End
    Begin VB.CommandButton Command4 
-      Caption         =   "½áÊø"
+      Caption         =   "ç»“æŸ"
       Height          =   495
       Left            =   3000
       TabIndex        =   3
@@ -33,7 +33,7 @@ Begin VB.Form Form1
       Width           =   2175
    End
    Begin VB.CommandButton Command3 
-      Caption         =   "ÔİÍ£"
+      Caption         =   "æš‚åœ"
       Height          =   495
       Left            =   480
       TabIndex        =   2
@@ -64,7 +64,7 @@ Begin VB.Form Form1
    End
    Begin VB.Label Label1 
       BeginProperty Font 
-         Name            =   "³¤³ÇĞĞ¿¬Ìå"
+         Name            =   "é•¿åŸè¡Œæ¥·ä½“"
          Size            =   26.25
          Charset         =   134
          Weight          =   400
@@ -79,19 +79,19 @@ Begin VB.Form Form1
       Width           =   6255
    End
    Begin VB.Menu start 
-      Caption         =   "¿ªÊ¼ÓÎÏ·"
+      Caption         =   "å¼€å§‹æ¸¸æˆ"
    End
    Begin VB.Menu pause 
-      Caption         =   "ÔİÍ£/¼ÌĞø"
+      Caption         =   "æš‚åœ/ç»§ç»­"
    End
    Begin VB.Menu endgame 
-      Caption         =   "½áÊøÓÎÏ·"
+      Caption         =   "ç»“æŸæ¸¸æˆ"
    End
    Begin VB.Menu exit 
-      Caption         =   "ÍË³ö³ÌĞò"
+      Caption         =   "é€€å‡ºç¨‹åº"
    End
    Begin VB.Menu about 
-      Caption         =   "¹ØÓÚ×÷Õß"
+      Caption         =   "å…³äºä½œè€…"
    End
 End
 Attribute VB_Name = "Form1"
@@ -100,7 +100,7 @@ Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 Dim i%, WidthPosition%(1 To 26), HeightPosition%(1 To 26), ChrAsc%, Countnum%, Passtime%
-Sub Print_Chr()       '×Ô¶¨ÒåÏÔÊ¾µØÊó×Ó¹ı³Ì
+Sub Print_Chr()       'è‡ªå®šä¹‰æ˜¾ç¤ºåœ°é¼ å­è¿‡ç¨‹
 Randomize
 For i = 1 To 26
 WidthPosition(i) = Int((ScaleWidth - 2175) * Rnd)
@@ -118,61 +118,61 @@ Command2.Caption = ""
 Command2.Picture = LoadPicture(App.Path + "\images\" & (ChrAsc + 65) & ".gif")
 End Sub
 Sub Print_Result()
-Cls                         'ÇåÆÁ
+Cls                         'æ¸…å±
 Label1.Visible = True
 
-If Passtime = 0 Then           'ÅÅ³ıpasstimeÎª0
+If Passtime = 0 Then           'æ’é™¤passtimeä¸º0
     Command1.Visible = False
     Command2.Visible = False
     Picture1.Visible = True
-    Label1.Caption = "ÂıÂıÀ´£¬±ğ×Å¼±£¡"
+    Label1.Caption = "æ…¢æ…¢æ¥ï¼Œåˆ«ç€æ€¥ï¼"
 Else
 
-    speed = Int(Countnum / (Passtime / 60))  'ÊäÈëËÙ¶È¼ÆËã
+    speed = Int(Countnum / (Passtime / 60))  'è¾“å…¥é€Ÿåº¦è®¡ç®—
     
-    If speed > 30 Then      'ËÙ¶È³¬¹ı30Í¼Æ¬½±Àø
+    If speed > 30 Then      'é€Ÿåº¦è¶…è¿‡30å›¾ç‰‡å¥–åŠ±
     Picture1.Visible = True
     Picture1 = LoadPicture(App.Path & "\images\1.jpg")
     End If
     
     If Command3.Visible = True Then
-        If Command3.Caption = "ÔİÍ£&P" Then  'ÅĞ¶ÏÊÇ·ñ´¦ÓÚÔİÍ£×´Ì¬
+        If Command3.Caption = "æš‚åœ&P" Then  'åˆ¤æ–­æ˜¯å¦å¤„äºæš‚åœçŠ¶æ€
         Label1.Visible = False
         Picture1.Visible = False
         End If
     End If
 
-    Label1.Top = ScaleHeight * 0.3        'ÉèÖÃlabel³öÏÖÎ»ÖÃºÍÄÚÈİ
+    Label1.Top = ScaleHeight * 0.3        'è®¾ç½®labelå‡ºç°ä½ç½®å’Œå†…å®¹
     Picture1.Top = ScaleHeight * 0.3
-    Label1.Caption = "ÄãµÄ´ò×ÖËÙ¶ÈÔ¼Îª" & speed & "/·ÖÖÓ"
+    Label1.Caption = "ä½ çš„æ‰“å­—é€Ÿåº¦çº¦ä¸º" & speed & "/åˆ†é’Ÿ"
 End If
 End Sub
-Private Sub Command1_Click()  '¿ªÊ¼°´Å¥
+Private Sub Command1_Click()  'å¼€å§‹æŒ‰é’®
 Command1.Visible = False
 Command3.Visible = True
 Command4.Visible = True
 Timer1.Enabled = True
 Call Print_Chr
 End Sub
-Private Sub Command2_Click()   'ÏÔÊ¾µØÊó
+Private Sub Command2_Click()   'æ˜¾ç¤ºåœ°é¼ 
 Call Print_Chr
 Command1.Visible = False
 End Sub
-Private Sub Command3_Click()                    'ÔİÍ£¡¢¼ÌĞø¹¦ÄÜ
-Timer1.Enabled = Command3.Caption = "¼ÌĞø&G"
-Command2.Visible = Command3.Caption = "¼ÌĞø&G"
-Command3.Caption = IIf(Command3.Caption = "¼ÌĞø&G", "ÔİÍ£&P", "¼ÌĞø&G")
+Private Sub Command3_Click()                    'æš‚åœã€ç»§ç»­åŠŸèƒ½
+Timer1.Enabled = Command3.Caption = "ç»§ç»­&G"
+Command2.Visible = Command3.Caption = "ç»§ç»­&G"
+Command3.Caption = IIf(Command3.Caption = "ç»§ç»­&G", "æš‚åœ&P", "ç»§ç»­&G")
 Call Print_Result
 End Sub
 
-Private Sub Command4_Click()  '½áÊøÓÎÏ·ÏÔÊ¾½á¹û
+Private Sub Command4_Click()  'ç»“æŸæ¸¸æˆæ˜¾ç¤ºç»“æœ
 Timer1.Enabled = False
 Command2.Visible = False
 Command3.Visible = False
 Command4.Visible = False
 Call Print_Result
 End Sub
-Private Sub Form_Load()    'Ô¤´¦Àí¡¢¸´Î»
+Private Sub Form_Load()    'é¢„å¤„ç†ã€å¤ä½
 AutoRedraw = True
 Command1.Picture = LoadPicture(App.Path + "\images\go.gif")
 Form1.Icon = LoadPicture(App.Path + "\images\ico.ico")
@@ -184,16 +184,16 @@ Command3.Visible = False
 Command4.Visible = False
 Picture1.Visible = False
 Label1.Visible = False
-Command3.Caption = "ÔİÍ£&P"
-Command4.Caption = "½áÊø&S"
-pause.Caption = "ÔİÍ£/¼ÌĞø"
-start.Caption = "¿ªÊ¼ÓÎÏ·"
+Command3.Caption = "æš‚åœ&P"
+Command4.Caption = "ç»“æŸ&S"
+pause.Caption = "æš‚åœ/ç»§ç»­"
+start.Caption = "å¼€å§‹æ¸¸æˆ"
 Timer1.Interval = 1000
 Countnum = 0
 Passtime = 0
 End Sub
 
-Private Sub Form_KeyPress(KeyAscii As Integer)   '»ñµÃÊäÈë×ÖÄ¸µÄasciiÂë
+Private Sub Form_KeyPress(KeyAscii As Integer)   'è·å¾—è¾“å…¥å­—æ¯çš„asciiç 
 If KeyAscii > 90 Then
 KeyAscii = KeyAscii - 32
 End If
@@ -202,25 +202,25 @@ Countnum = Countnum + 1
 Call Print_Chr
 End If
 End Sub
-Private Sub Timer1_Timer()        '¼ÆÊ±Æ÷
+Private Sub Timer1_Timer()        'è®¡æ—¶å™¨
 Passtime = Passtime + 1
 End Sub
-Private Sub start_Click()                 '²Ëµ¥
+Private Sub start_Click()                 'èœå•
 Call Form_Load
-start.Caption = IIf(start.Caption = "¿ªÊ¼ÓÎÏ·", "ÖØĞÂ¿ªÊ¼", "¿ªÊ¼ÓÎÏ·")
+start.Caption = IIf(start.Caption = "å¼€å§‹æ¸¸æˆ", "é‡æ–°å¼€å§‹", "å¼€å§‹æ¸¸æˆ")
 End Sub
-Private Sub exit_Click()               '²Ëµ¥
+Private Sub exit_Click()               'èœå•
 End
 End Sub
-Private Sub pause_Click()             '²Ëµ¥
-If Command1.Visible = False And Label1.Visible = False Then   'ÅĞ¶ÏÊÇ·ñÒÑ¾­¿ªÊ¼ÁËÓÎÏ·
+Private Sub pause_Click()             'èœå•
+If Command1.Visible = False And Label1.Visible = False Then   'åˆ¤æ–­æ˜¯å¦å·²ç»å¼€å§‹äº†æ¸¸æˆ
     Call Command3_Click
-    pause.Caption = IIf(pause.Caption = "¼ÌĞøÓÎÏ·", "ÔİÍ£Ò»ÏÂ", "¼ÌĞøÓÎÏ·")
+    pause.Caption = IIf(pause.Caption = "ç»§ç»­æ¸¸æˆ", "æš‚åœä¸€ä¸‹", "ç»§ç»­æ¸¸æˆ")
 End If
 End Sub
-Private Sub endgame_Click()                 '²Ëµ¥
+Private Sub endgame_Click()                 'èœå•
 Call Command4_Click
 End Sub
-Private Sub about_Click()                      '²Ëµ¥-¹ØÓÚ×÷Õß
-MsgBox ("×÷Õß£ºRming QQ£º417623184 ²©¿Í£ºkissps.com                                     ¸Õ¸ÕÑ§Ï°VBÒ»¸ö¶àÔÂ£¬×ö¸ö¶«Î÷ÍæÍæ£¬ÕûÕû×öÁËÒ»ÏÂÎç¡£ ")
+Private Sub about_Click()                      'èœå•-å…³äºä½œè€…
+MsgBox ("åˆšåˆšå­¦ä¹ VBä¸€ä¸ªå¤šæœˆï¼Œåšä¸ªä¸œè¥¿ç©ç©ï¼Œæ•´æ•´åšäº†ä¸€ä¸‹åˆã€‚ ")
 End Sub
